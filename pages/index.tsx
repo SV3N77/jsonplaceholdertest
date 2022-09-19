@@ -27,14 +27,12 @@ function Home({ users }: UserProps) {
       </Head>
 
       <header className="bg-teal-100 p-4">
-        <div className="mx-auto container text-2xl">
-          Jsonplaceholder Contacts
-        </div>
+        <div className="mx-auto container text-2xl">Contacts</div>
       </header>
-      <main className="py-8">
+      <main className="py-8 bg-slate-50">
         <div className="mx-auto container">
           <section className="flex flex-col gap-4">
-            <div className="text-xl">Contacts</div>
+            <div className="text-xl px-4">Names</div>
             <div className="flex flex-col bg-teal-50">
               {users.map((user) => (
                 <ContactCards
@@ -72,7 +70,6 @@ type ContactCardProps = {
   website: string;
   company: {
     name: string;
-    catchPhrase: string;
     bs: string;
   };
 };
@@ -103,9 +100,16 @@ function ContactCards({
           <div className="flex flex-col gap-2">
             <div>
               Address:{" "}
-              {address.suite + address.street + address.city + address.zipcode}
+              {address.suite +
+                " " +
+                address.street +
+                " " +
+                address.city +
+                " " +
+                address.zipcode}
             </div>
             <div>Company: {company.name}</div>
+            <div className="capitalize">{company.bs}</div>
           </div>
         </div>
       </div>
